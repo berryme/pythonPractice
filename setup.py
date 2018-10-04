@@ -1,12 +1,13 @@
 from setuptools import setup
 
 setup(
-    name='DemoWeb',
-    version='0.1',
-    packages=['web1.web1'],
+    name='pythonPractice',
+    version='0.11',
+    packages=['web', 'web.web', 'web.tests', 'web.packages', 'web.packages.xml', 'libs', 'libs.xml', 'web1.web1',
+              'polls', 'polls.polls'],
     url='',
     license='',
-    author='BerryM2',
-    author_email='berryme@yahoo.com',
-    description='Demo django AWS'
+    author='berryme',
+    author_email='',
+    description='practice wheel'
 )
