@@ -1,4 +1,7 @@
-version: '2'
+version: '3.3'
 services:
-  cd6d8154f1e1:
-    image: 'sha256:cd6d8154f1e16e38493c3c2798977c5e142be5e5d41403ca89883840c6d51762'
+  a867f21cd68e:
+    image: 'sha256:a867f21cd68e44c54ed08ae9cfeabea0f88b90fdcd1b926f858c16a042519108'
+    command: bash
+    ports:
+      - '8000:8000'
