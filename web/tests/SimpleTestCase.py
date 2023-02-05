@@ -20,5 +20,6 @@ class MyTestCase(unittest.TestCase):
 
         self.assertNotIn("forr", objs)
 
+
 if __name__ == '__main__':
     unittest.main()
