@@ -1,14 +1,27 @@
-from python:3.10
+FROM python:3.10 as builder
 
-ADD requirements.txt /requirements.txt
+WORKDIR /working
+
+COPY / /working
+
+RUN python -m venv /opt/venv
+
+ENV PATH="/opt/venv/bin:$PATH"
 
 RUN pip3 install --upgrade pip
 
-RUN pip3 install -r requirements.txt
+RUN pip3 install --upgrade -r /working/requirements.txt
 
-ADD pythonPractice-0.12-py3-none-any.whl /pythonPractice-0.12-py3-none-any.whl
+RUN python -m build /working
 
-RUN pip3 install /pythonPractice-0.12-py3-none-any.whl
+RUN pip3 install /working/dist/pythonPractice-0.12-py3-none-any.whl
+
+FROM python:3.10-slim-bullseye as main
+
+COPY --from=builder /opt/venv /opt/venv
+
+ENTRYPOINT ["sh"]
+
 
 
 
